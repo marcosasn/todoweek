@@ -1,4 +1,175 @@
-@(message: String)
+@(semanas: List[Week])(content: Html)
 
-@main("To Do Week") {
-}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+        <title>To Do Week</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link href="@routes.Assets.at("stylesheets/styles.css")" rel="stylesheet">
+        <link href="@routes.Assets.at("stylesheets/bootstrap.min.css")" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+  		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->	
+    </head>
+    <body>
+    
+    <div class="page-container">
+	<!-- top navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand">To Do Week</a>
+    	</div>
+    </nav>
+      
+    <div class="container-fluid">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <!--sidebar-->
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div data-spy="affix" data-offset-top="45" data-offset-bottom="90">
+            <ul class="nav" id="sidebar-nav">
+              <li><a href="#metasSemanaUm">Semana 1</a></li>
+              <li><a href="#metasSemanaDois">Semana 2</a></li>
+              <li><a href="#metasSemanaTres">Semana 3</a></li>
+              <li><a href="#metasSemanaQuatro">Semana 4</a></li>
+              <li><a href="#metasSemanaCinco">Semana 5</a></li>
+              <li><a href="#metasSemanaSeis">Semana 6</a></li>
+            </ul>
+           </div>
+        </div><!--/sidebar-->
+  	
+        <!--/main-->
+        <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
+          <div class="row">
+           	 <div class="col-sm-6">                
+	              <h1 id="metasSemanaUm">Metas semana 1</h1>
+		          <p>
+				    @if(!semanas.isEmpty() && semanas.get(0).isEmpty()){
+				        Nenhuma meta foi cadastrada.
+				    }else{
+					    @if(!semanas.isEmpty() && !semanas.get(0).isEmpty()){
+					        <ul>
+					            @for(meta <- semanas.get(0).getObjetivos()){
+					                <li>@meta.getNome() - @meta.getDescricao()</li>
+					            }
+					        </ul>
+					    }
+				    }
+				  </p>
+		      	<hr>
+		      	
+		      	<h1 id="metasSemanaDois">Metas semana 2</h1>
+		          <p>
+				    @if(!semanas.isEmpty() && semanas.get(1).isEmpty()){
+				        Nenhuma meta foi cadastrada.
+				    }else{
+					    @if(!semanas.isEmpty() && !semanas.get(1).isEmpty()){
+					        <ul>
+					            @for(meta <- semanas.get(1).getObjetivos()){
+					                <li>@meta.getNome() - @meta.getDescricao()</li>
+					            }
+					        </ul>
+					    }
+				    }
+				  </p>
+		      	<hr>
+          
+		        </div><!--/col-->
+            
+            <div class="col-sm-6">                                    
+	          <h1 id="criarmeta">Criar meta</h1>
+	          <p><form method="post" action="/criarmeta"/>
+		          <div class="input-group input-group">
+		  			<span class="input-group-addon">Nome</span>
+		  			<input name="nome" type="text" class="form-control" placeholder="Nome">
+				  </div>
+				  <br>
+				  <div class="input-group input-group">
+		  			<span class="input-group-addon">Prioridade</span>
+		  			<input name="prioridade" type="number" class="form-control" placeholder="Prioridade">
+				  </div>
+				  <br>
+				  <div class="input-group input-group">
+		  			<span class="input-group-addon">Descrição</span>
+		  			<input name="descricao" type="text" class="form-control" placeholder="Descrição">
+				  </div>
+				  <br>
+				  
+				  <div class="input-group input-group">
+				  	<span class="input-group-addon">Semana</span>
+				    <select class="form-control" name="semana">
+					  <option>Semana 1</option>
+					  <option>Semana 2</option>
+					  <option>Semana 3</option>
+					  <option>Semana 4</option>
+					  <option>Semana 5</option>
+					  <option>Semana 6</option>
+				    </select>
+				  </div>
+				  <br>
+				  <div class="col-xs-4">
+				     <input class="btn btn-primary" type="submit" value="Criar"/>
+				  </div>
+				  <br>
+	    	  </form></p>
+	    	  <hr>          
+	       </div><!--/col-6-->
+	                        
+            <div class="clearfix"></div>  
+	        </div><!--/.col-xs-12-->
+	      </div><!--/.row-->
+	    </div>
+	  </div><!--/.container-->
+	</div><!--/.page-container-->
+	
+	<footer><!--footer-->
+  	<div class="container">
+      	<div class="row">
+          <ul class="list-unstyled text-right">
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">About</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Services</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Studies</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">References</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Login</a>
+            </li>
+           <li class="col-sm-4 col-xs-6">
+              <a href="#">Press</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Contact</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Impressum</a>
+            </li>
+          </ul>
+		</div><!--/row-->
+    </div><!--/container-->
+	</footer>
+        
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+		<script src="@routes.Assets.at("javascripts/scripts.js")" type="text/javascript"></script>
+    </body>
+</html>
