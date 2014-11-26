@@ -1,6 +1,6 @@
 package models;
 
-public class Objective {
+public class Objective implements Comparable<Objective> {
 	
 	private String nome;
 	private int prioridade;
@@ -55,5 +55,16 @@ public class Objective {
 	
 	public void setDeadline(String semana) {
 		deadline = semana;
+	}
+	
+	@Override
+	public int compareTo(Objective arg0) {
+		if (this.getPrioridade() < arg0.getPrioridade()){
+			return -1;
+		}
+		else if (this.getPrioridade() > arg0.getPrioridade()) {
+			return 1;
+		}
+		return 0;
 	}
 }

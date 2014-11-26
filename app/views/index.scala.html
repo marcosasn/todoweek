@@ -62,10 +62,14 @@
 					    @if(!semanas.isEmpty() && !semanas.get(0).isEmpty()){
 					        <ul>
 					            @for(meta <- semanas.get(0).getObjetivos()){
-					                <li>@meta.getNome() - @meta.getDescricao()</li>
+					                <li>@meta.getNome()<br>
+					                    @meta.getPrioridade()<br>
+					                    @meta.getDescricao()
+					                </li>
 					            }
 					        </ul>
 					    }
+					    Total de metas: @semanas.get(0).numeroObjetivos()
 				    }
 				  </p>
 		      	<hr>
@@ -78,10 +82,14 @@
 					    @if(!semanas.isEmpty() && !semanas.get(1).isEmpty()){
 					        <ul>
 					            @for(meta <- semanas.get(1).getObjetivos()){
-					                <li>@meta.getNome() - @meta.getDescricao()</li>
+					                <li>@meta.getNome()<br>
+					                    @meta.getPrioridade()<br>
+					                    @meta.getDescricao()
+					                </li>
 					            }
 					        </ul>
 					    }
+					    Total de metas: @semanas.get(1).numeroObjetivos()
 				    }
 				  </p>
 		      	<hr>

@@ -1,7 +1,9 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
 
 public class Week {
 	
@@ -33,5 +35,13 @@ public class Week {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public int numeroObjetivos() {
+		return objetivos.size();
+	}
+	
+	public void ordenarObjetivoPrioridade() {
+		Collections.sort(this.getObjetivos(),new ComparadorObjetivo());
 	}
 }
