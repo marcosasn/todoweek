@@ -23,6 +23,7 @@ public class Week {
 	
 	public void addObjetivo(Objective objetivo) {
 		objetivos.add(objetivo);
+		Collections.sort(this.getObjetivos());
 	}
 	
 	public List<Objective> getObjetivos() {
@@ -39,9 +40,5 @@ public class Week {
 	
 	public int numeroObjetivos() {
 		return objetivos.size();
-	}
-	
-	public void ordenarObjetivoPrioridade() {
-		Collections.sort(this.getObjetivos(),new ComparadorObjetivo());
 	}
 }

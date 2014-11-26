@@ -60,10 +60,10 @@ public class Objective implements Comparable<Objective> {
 	@Override
 	public int compareTo(Objective arg0) {
 		if (this.getPrioridade() < arg0.getPrioridade()){
-			return -1;
+			return 1;
 		}
 		else if (this.getPrioridade() > arg0.getPrioridade()) {
-			return 1;
+			return -1;
 		}
 		return 0;
 	}

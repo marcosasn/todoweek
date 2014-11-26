@@ -44,32 +44,26 @@ public class ToDoWeek {
 		case SEMANA_UM:
 			meta = new Objective(nome, prioridade, descricao, semana);
 			semanas.get(INDEX_SEMANA_UM).addObjetivo(meta);
-			semanas.get(INDEX_SEMANA_UM).ordenarObjetivoPrioridade();
 			break;
 		case SEMANA_DOIS:
 			meta = new Objective(nome, prioridade, descricao, semana);
 			semanas.get(INDEX_SEMANA_DOIS).addObjetivo(meta);
-			semanas.get(INDEX_SEMANA_DOIS).ordenarObjetivoPrioridade();
 			break;
 		case SEMANA_TRES:
 			meta = new Objective(nome, prioridade, descricao, semana);
 			semanas.get(INDEX_SEMANA_TRES).addObjetivo(meta);
-			semanas.get(INDEX_SEMANA_TRES).ordenarObjetivoPrioridade();
 			break;
 		case SEMANA_QUATRO:
 			meta = new Objective(nome, prioridade, descricao, semana);
 			semanas.get(INDEX_SEMANA_QUATRO).addObjetivo(meta);
-			semanas.get(INDEX_SEMANA_QUATRO).ordenarObjetivoPrioridade();
 			break;
 		case SEMANA_CINCO:
 			meta = new Objective(nome, prioridade, descricao, semana);
 			semanas.get(INDEX_SEMANA_CINCO).addObjetivo(meta);
-			semanas.get(INDEX_SEMANA_CINCO).ordenarObjetivoPrioridade();
 			break;
 		case SEMANA_SEIS:
 			meta = new Objective(nome, prioridade, descricao, semana);
 			semanas.get(INDEX_SEMANA_SEIS).addObjetivo(meta);
-			semanas.get(INDEX_SEMANA_SEIS).ordenarObjetivoPrioridade();
 			break;
 		default:
 			break;
