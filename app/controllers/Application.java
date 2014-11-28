@@ -27,4 +27,20 @@ public class Application extends Controller {
 		toDoWeek.criarMeta(nome, prioridade, descricao, semana);
 		return ok(index.render(toDoWeek.getSemanas(), null));
 	}
+	
+	public static Result marcarMeta() {
+		return ok(index.render(toDoWeek.getSemanas(), null));
+	}
+	
+	public static Result deletarMeta(String id) {
+		String nome = id;
+		for (int i = 0; i < toDoWeek.getSemanas().size(); i++) {
+			for (int j = 0; j < toDoWeek.getSemanas().get(i).numeroObjetivos(); j++) {
+				if(toDoWeek.getSemanas().get(i).getObjetivos().get(j).getNome().equals(nome)){
+					toDoWeek.getSemanas().get(i).getObjetivos().remove(toDoWeek.getSemanas().get(i).getObjetivos().get(j));
+				}
+			}
+		}
+		return ok(index.render(toDoWeek.getSemanas(), null));
+	}
 }

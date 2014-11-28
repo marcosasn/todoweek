@@ -53,8 +53,9 @@
         <!--/main-->
         <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
           <div class="row">
-           	 <div class="col-sm-6">                
-	              <h1 id="metasSemanaUm">Metas semana 1</h1>
+           	 <div class="col-sm-6">
+           	   
+           	    <h1 id="metasSemanaUm">Metas semana 1</h1>
 		          <p>
 				    @if(!semanas.isEmpty() && semanas.get(0).isEmpty()){
 				        Nenhuma meta foi cadastrada.
@@ -62,9 +63,11 @@
 					    @if(!semanas.isEmpty() && !semanas.get(0).isEmpty()){
 					        <ul>
 					            @for(meta <- semanas.get(0).getObjetivos()){
-					                <li>@meta.getNome()<br>
-					                    @meta.getPrioridade()<br>
-					                    @meta.getDescricao()
+					                <li>
+					                    Nome: @meta.getNome()<br>
+					                    Prioridade: @meta.getPrioridade()<br>
+					                    Descrição: @meta.getDescricao()<br>
+					                    <button class="btn btn-danger deletar-meta" id="@meta.getNome()">Deletar</button>
 					                </li>
 					            }
 					        </ul>
@@ -93,12 +96,11 @@
 				    }
 				  </p>
 		      	<hr>
-          
-		        </div><!--/col-->
+            </div><!--/col-->
             
             <div class="col-sm-6">                                    
 	          <h1 id="criarmeta">Criar meta</h1>
-	          <p><form method="post" action="/criarmeta"/>
+	          <form method="post" action="/criarmeta"/>
 		          <div class="input-group input-group">
 		  			<span class="input-group-addon">Nome</span>
 		  			<input name="nome" type="text" class="form-control" placeholder="Nome">
@@ -109,10 +111,7 @@
 		  			<input name="prioridade" type="number" class="form-control" placeholder="Prioridade">
 				  </div>
 				  <br>
-				  <div class="input-group input-group">
-		  			<span class="input-group-addon">Descrição</span>
-		  			<input name="descricao" type="text" class="form-control" placeholder="Descrição">
-				  </div>
+				  <textarea name="descricao" class="form-control" rows="3" placeholder="Descrição"></textarea>
 				  <br>
 				  
 				  <div class="input-group input-group">
@@ -131,8 +130,7 @@
 				     <input class="btn btn-primary" type="submit" value="Criar"/>
 				  </div>
 				  <br>
-	    	  </form></p>
-	    	  <hr>          
+	    	  </form>          
 	       </div><!--/col-6-->
 	                        
             <div class="clearfix"></div>  
@@ -147,9 +145,7 @@
       	<div class="row">
           <ul class="list-unstyled">
             <li class="col-sm-4 col-xs-6"></li>
-            <li>
-                Copyright © 2014 To Do Week, All rights reserveds.
-            </li>
+            <li>Copyright © 2014 To Do Week, All rights reserveds.</li>
             <li class="col-sm-4 col-xs-6"></li>
           </ul>          
 		</div><!--/row-->
