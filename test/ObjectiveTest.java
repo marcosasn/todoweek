@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 
-import models.Objective;
+import models.Objetivo;
 import models.Week;
 
 import org.junit.Before;
@@ -9,11 +9,11 @@ import org.junit.Test;
 
 public class ObjectiveTest {
 	
-	private Objective objective;
+	private Objetivo objective;
 
 	@Before
 	public void setUp() throws Exception {
-		objective = new Objective();
+		objective = new Objetivo();
 	}
 
 	@Test
