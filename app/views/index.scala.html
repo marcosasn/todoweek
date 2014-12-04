@@ -69,7 +69,80 @@
 		            }
 				  </p></ul>
 		      	<hr>
-		      	
+		      	<h1 id="metasSemanaDois">Metas semana 2</h1>
+		          <p><ul>
+		          @for(objetivo <- objetivos){
+		              @if(objetivo.getSemana() == 2){
+		                <li>
+		                    Nome: @objetivo.getNome()<br>
+		                    Prioridade: @objetivo.getPrioridade()<br>
+		                    Descrição: @objetivo.getDescricao()<br>
+		                </li>
+		                <button class="btn btn-danger deletar-meta" id="@objetivo.getId()">Deletar</button>
+		                <hr>
+		              }
+		            }
+				  </p></ul>
+		      	<hr>
+		      	<h1 id="metasSemanaTres">Metas semana 3</h1>
+		          <p><ul>
+		          @for(objetivo <- objetivos){
+		              @if(objetivo.getSemana() == 3){
+		                <li>
+		                    Nome: @objetivo.getNome()<br>
+		                    Prioridade: @objetivo.getPrioridade()<br>
+		                    Descrição: @objetivo.getDescricao()<br>
+		                </li>
+		                <button class="btn btn-danger deletar-meta" id="@objetivo.getId()">Deletar</button>
+		                <hr>
+		              }
+		            }
+				  </p></ul>
+		      	<hr>
+		      	<h1 id="metasSemanaQuatro">Metas semana 4</h1>
+		          <p><ul>
+		          @for(objetivo <- objetivos){
+		              @if(objetivo.getSemana() == 4){
+		                <li>
+		                    Nome: @objetivo.getNome()<br>
+		                    Prioridade: @objetivo.getPrioridade()<br>
+		                    Descrição: @objetivo.getDescricao()<br>
+		                </li>
+		                <button class="btn btn-danger deletar-meta" id="@objetivo.getId()">Deletar</button>
+		                <hr>
+		              }
+		            }
+				  </p></ul>
+		      	<hr>
+		      	<h1 id="metasSemanaCinco">Metas semana 5</h1>
+		          <p><ul>
+		          @for(objetivo <- objetivos){
+		              @if(objetivo.getSemana() == 5){
+		                <li>
+		                    Nome: @objetivo.getNome()<br>
+		                    Prioridade: @objetivo.getPrioridade()<br>
+		                    Descrição: @objetivo.getDescricao()<br>
+		                </li>
+		                <button class="btn btn-danger deletar-meta" id="@objetivo.getId()">Deletar</button>
+		                <hr>
+		              }
+		            }
+				  </p></ul>
+		      	<hr>
+		      	<h1 id="metasSemanaSeis">Metas semana 6</h1>
+		          <p><ul>
+		          @for(objetivo <- objetivos){
+		              @if(objetivo.getSemana() == 6){
+		                <li>
+		                    Nome: @objetivo.getNome()<br>
+		                    Prioridade: @objetivo.getPrioridade()<br>
+		                    Descrição: @objetivo.getDescricao()<br>
+		                </li>
+		                <button class="btn btn-danger deletar-meta" id="@objetivo.getId()">Deletar</button>
+		                <hr>
+		              }
+		            }
+				  </p></ul>
             </div><!--/col-->
             
             <div class="col-sm-6">                                    
