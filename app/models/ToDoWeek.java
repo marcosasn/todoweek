@@ -2,9 +2,9 @@ package models;
 
 public class ToDoWeek {
 		
-	private final String BAIXA = "Baixa";
-	private final String MEDIA = "Média";
-	private final String ALTA = "Alta";
+	private final String BAIXA = "BAIXA";
+	private final String MEDIA = "MEDIA";
+	private final String ALTA = "ALTA";
 	
 	private final String SEMANA_UM = "Semana 1";
 	private final String SEMANA_DOIS = "Semana 2";
@@ -15,7 +15,7 @@ public class ToDoWeek {
 	
 	public ToDoWeek() {}
 	
-	public Objetivo criarMeta(String nome,String prioridade, String descricao, String semana) {
+	public Objetivo criarMeta(String nome, String prioridade, String descricao, String semana) {
 		Prioridade prioridadeCorrente = Prioridade.BAIXA;
 		int semanaCorrente = 1;
 				

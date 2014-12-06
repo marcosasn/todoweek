@@ -95,4 +95,13 @@ public class Objetivo implements Comparable<Objetivo> {
             return arg0.getPrioridade().getValor() - this.getPrioridade().getValor();
         }
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj != null && obj instanceof Objetivo) {
+			Objetivo objeto = (Objetivo) obj;
+			return this.getNome().equals(objeto.getNome()) && this.getDescricao().equals(objeto.getDescricao());
+		}
+		return false;
+	}
 }

@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.databind.JsonNode;
+
+import models.Objetivo;
+
 import org.junit.*;
 
 import play.mvc.*;
@@ -27,6 +30,13 @@ import static org.fest.assertions.Assertions.*;
 *
 */
 public class ApplicationTest {
+	
+	private List<Objetivo> objetivos;
+	
+	@Before
+	public void setUp() {
+		objetivos = new ArrayList<Objetivo>();
+	}
 
     @Test
     public void simpleCheck() {
@@ -36,8 +46,9 @@ public class ApplicationTest {
 
     @Test
     public void renderTemplate() {
-        //Content html = views.html.index.render("Your new application is ready.");
-        //assertThat(contentType(html)).isEqualTo("text/html");
-        //assertThat(contentAsString(html)).contains("Your new application is ready.");
+        Content html = views.html.index.render(objetivos);
+        assertThat(contentType(html)).isNotNull();
+        assertThat(contentType(html)).isEqualTo("text/html");
+        assertThat(contentAsString(html)).contains("To Do Week");
     }
 }
