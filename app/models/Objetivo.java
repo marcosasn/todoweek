@@ -3,9 +3,6 @@ package models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Objetivo implements Comparable<Objetivo> {
@@ -14,9 +11,9 @@ public class Objetivo implements Comparable<Objetivo> {
     @GeneratedValue
     private long id;
 
-    private final String FAZER = "FAZER";
-    private final String FEITO = "FEITO";
-    private final String FALHOU = "FALHOU";
+    private static final String FAZER = "FAZER";
+    public static final String FEITO = "FEITO";
+    public static final String FALHOU = "FALHOU";
 
     private String nome;
     private String descricao;
@@ -92,6 +89,10 @@ public class Objetivo implements Comparable<Objetivo> {
 	
 	@Override
 	public int compareTo(Objetivo arg0) {
-		return 0;
+		if(this.getSemana() != arg0.getSemana()){
+            return this.getSemana() - arg0.getSemana();
+        }else{
+            return arg0.getPrioridade().getValor() - this.getPrioridade().getValor();
+        }
 	}
 }

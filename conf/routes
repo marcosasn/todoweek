@@ -5,8 +5,8 @@
 # Home page
 GET     /                           controllers.Application.index()
 POST    /criarmeta                  controllers.Application.criarMeta()
-#POST   /marcarmeta                 controllers.Application.marcarMeta()
-DELETE  /deletarmeta/:id            controllers.Application.deletarMeta(id: String)
+POST    /marcarmetafeita            controllers.Application.marcarMetaFeita(id: Long)
+POST    /deletarmeta                controllers.Application.deletarMeta(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

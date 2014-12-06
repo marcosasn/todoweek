@@ -1,6 +1,9 @@
 package controllers;
 
+import java.util.Collections;
 import java.util.List;
+
+import org.hibernate.mapping.Collection;
 
 
 import models.Global;
@@ -24,35 +27,48 @@ public class Application extends Controller {
     @Transactional
     public static Result index() {
         objetivos = dao.findAllByClassName(Objetivo.class.getName());
+        Collections.sort(objetivos);
         return ok(index.render(objetivos));
     }	
     
 	@Transactional
 	public static Result criarMeta() {
 		DynamicForm form = Form.form().bindFromRequest();
-			
-		String nome = form.get("nome");
-		String prioridade = form.get("prioridade");
-		String descricao = form.get("descricao");
-		String semana = form.get("semana");
+		String nome;
+		String prioridade;
+		String descricao;
+		String semana;
+		
+		try {
+            nome = form.get("nome");
+            prioridade = form.get("prioridade");
+            descricao = form.get("descricao");;
+            semana = form.get("semana");
+        } catch (Exception e) {
+            return badRequest();
+        }
+
+        if (nome == null || nome.equals("")|| descricao == null || descricao.equals("")|| prioridade == null ||
+                semana == null || semana.equals("")) {
+            return badRequest();
+        }
 		
 		dao.persist(todoweek.criarMeta(nome, prioridade, descricao, semana));
-        List<Objetivo> objetivos = dao.findAllByClassName(Objetivo.class.getName());
-        return ok(index.render(objetivos));
+        return redirect(routes.Application.index());
 	}
-	
-	/*//persiste?
-	public static Result marcarMeta() {
-		return ok(index.render(toDoWeek.getSemanas(), null));
-	}*/
 	
 	@Transactional
-	public static Result deletarMeta(String id) {
-		for (int i = 0; i < objetivos.size(); i++) {
-			if (objetivos.get(i).getId() == Long.parseLong(id)) {
-				dao.remove(objetivos.remove(i));
-			}
-		}
-		return ok(index.render(objetivos));
-	}
+    public static Result marcarMetaFeita(long id) {
+		Objetivo objetivo = dao.findByEntityId(Objetivo.class, id);
+		dao.remove(objetivo);
+        objetivo.setStatus(Objetivo.FEITO);
+        dao.persist(objetivo);
+        return redirect(routes.Application.index());
+    }
+	
+	@Transactional
+    public static Result deletarMeta(long id) {
+        dao.removeById(Objetivo.class, id);
+        return redirect(routes.Application.index());
+    }
 }
