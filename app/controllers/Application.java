@@ -3,12 +3,8 @@ package controllers;
 import java.util.Collections;
 import java.util.List;
 
-import org.hibernate.mapping.Collection;
 
-
-import models.Global;
 import models.Objetivo;
-import models.Prioridade;
 import models.ToDoWeek;
 import models.dao.GenericDAO;
 import play.data.Form;
